@@ -31,7 +31,7 @@ export class CreatePageComponent implements OnInit {
       author: this.form.value.author,
       text: this.form.value.text,
       date: new Date(),
-    }
+    };
   }
 
 }
