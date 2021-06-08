@@ -10,6 +10,7 @@ import { PostService } from 'src/app/shared/post.service';
 export class DashboardPageComponent implements OnInit {
 
   posts: Post[] = [];
+  searchStr = '';
 
   constructor(private postService: PostService) { }
 
@@ -19,8 +20,8 @@ export class DashboardPageComponent implements OnInit {
     });
   }
 
-  remove(id: string) {
-
+  remove(id: string): any {
+    return null;
   }
 
 }
