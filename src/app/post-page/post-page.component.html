@@ -1,18 +1,21 @@
-<div class="post">
-    <div class="header">
-        <h1>Post title</h1>
+<div *ngIf="posts$ | async as post; else loading">
+    <div class="post">
+        <div class="header">
+            <h1>{{post.title}}</h1>
 
-        <button routerLink="/" class="btn btn-link">To homepage</button>
-    </div>
-    <div class="info">
-        <strong>Author</strong>
-        <small>12.09.2019</small>
-    </div>
-    <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A non reiciendis ullam dolorum labore voluptas animi id autem ab accusamus dignissimos totam mollitia magnam omnis dolor ipsum veniam eius enim, corrupti cum odit, optio, modi nemo. Magni neque deserunt voluptas. Ducimus corrupti reprehenderit blanditiis omnis consectetur aliquid adipisci rem alias?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A non reiciendis ullam dolorum labore voluptas animi id autem ab accusamus dignissimos totam mollitia magnam omnis dolor ipsum veniam eius enim, corrupti cum odit, optio, modi nemo. Magni neque deserunt voluptas. Ducimus corrupti reprehenderit blanditiis omnis consectetur aliquid adipisci rem alias?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A non reiciendis ullam dolorum labore voluptas animi id autem ab accusamus dignissimos totam mollitia magnam omnis dolor ipsum veniam eius enim, corrupti cum odit, optio, modi nemo. Magni neque deserunt voluptas. Ducimus corrupti reprehenderit blanditiis omnis consectetur aliquid adipisci rem alias?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A non reiciendis ullam dolorum labore voluptas animi id autem ab accusamus dignissimos totam mollitia magnam omnis dolor ipsum veniam eius enim, corrupti cum odit, optio, modi nemo. Magni neque deserunt voluptas. Ducimus corrupti reprehenderit blanditiis omnis consectetur aliquid adipisci rem alias?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A non reiciendis ullam dolorum labore voluptas animi id autem ab accusamus dignissimos totam mollitia magnam omnis dolor ipsum veniam eius enim, corrupti cum odit, optio, modi nemo. Magni neque deserunt voluptas. Ducimus corrupti reprehenderit blanditiis omnis consectetur aliquid adipisci rem alias?</p>
+            <button routerLink="/" class="btn btn-link">To homepage</button>
+        </div>
+        <div class="info">
+            <strong>{{post.title}}</strong>
+            <small>{{post.date | date:'medium':null:'ru'}}</small>
+        </div>
+        <div>
+            <quill-view-html [content]="post.text"></quill-view-html>
+            <!-- {{post.text}} -->
+        </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <p class="text-center">Загрузка...</p>
+</ng-template>
